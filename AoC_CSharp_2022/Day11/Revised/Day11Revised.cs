@@ -28,7 +28,7 @@ class Monkey
 {
     private readonly Func<long, long> _operation;
     private readonly Func<long, int> _test;
-    private readonly long _testNum;
+    public long TestNum { get; }
 
     public long InspectionCount { get; private set; } = 0;
     public int Id { get; }
@@ -43,7 +43,7 @@ class Monkey
     ) {
         _operation = operation;
         _test = test;
-        _testNum = testNum;
+        TestNum = testNum;
         Id = id;
         Inventory = startingItems;
     }
@@ -75,14 +75,14 @@ class Monkey
         Inventory.Clear();
     }
 
-    public void CompressWorry()
+    public void CompressWorry(long commonDivisorMultiple)
     {
         for (int i = 0; i < Inventory.Count; i++) {
-            if (Inventory[i] <= _testNum) {
+            if (Inventory[i] <= TestNum) {
                 continue;
             }
             // https://www.reddit.com/r/adventofcode/comments/zifqmh/comment/izrfgit/?utm_source=share&utm_medium=web2x&context=3
-            Inventory[i] = Inventory[i] % Day11Impl.ProductOfTestNums;
+            Inventory[i] = Inventory[i] % commonDivisorMultiple;
         }
     }
 
@@ -113,7 +113,7 @@ class Monkey
         var operationTextTokens = lines[2]["  Operation: new = ".Length..].Split(' ');
 
         var testDivisibleNum = int.Parse(lines[3]["  Test: divisible by ".Length..]);
-        Day11Impl.TestNums.Add(testDivisibleNum);
+
         var trueMonkeyId = int.Parse(lines[4]["    If true: throw to monkey ".Length..]);
         var falseMonkeyId = int.Parse(lines[5]["    If false: throw to monkey ".Length..]);
         return new Monkey(
@@ -165,8 +165,6 @@ public class Day11Impl : PartitionedDayHandler
         Console.WriteLine(top2[0] * top2[1]);
     }
 
-    public static HashSet<long> TestNums { get; } = new();
-    public static long ProductOfTestNums { get; set; } = 1;
     protected override void Part2(List<string> lines)
     {
         var lineChunks = new List<List<string>>();
@@ -186,12 +184,16 @@ public class Day11Impl : PartitionedDayHandler
         lineChunks.Add(curLine);
 
         var monkeys = lineChunks.Select(Monkey.Parse).ToList();
-        ProductOfTestNums = TestNums.Aggregate((long)1, (accum, cur) => cur * accum);
+        long productOfTestNums = monkeys
+            .Select(m => m.TestNum)
+            .Distinct()
+            .Aggregate((long)1, (accum, cur) => cur * accum);
+
         for (int j = 0; j < 10000; j++) {
             foreach (var monkey in monkeys) {
                 monkey.ApplyOperation();
                 // monkey.Calm();
-                monkey.CompressWorry();
+                monkey.CompressWorry(productOfTestNums);
                 monkey.Toss(monkeys);
             }
 
