@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoCChatGPT2022", "AoCChatGPT2022\AoCChatGPT2022.csproj", "{ADCBF195-722F-4669-AAC1-D3549DD115FF}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "AoC_FSharp", "AoC_FSharp\AoC_FSharp.fsproj", "{09B1E622-2422-47E3-8DA8-74152F7E3CAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AoC_CSharp_2022", "AoC_CSharp_2022\AoC_CSharp_2022.csproj", "{5D169254-6E37-4D95-BE97-E1978FD135AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ADCBF195-722F-4669-AAC1-D3549DD115FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADCBF195-722F-4669-AAC1-D3549DD115FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADCBF195-722F-4669-AAC1-D3549DD115FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADCBF195-722F-4669-AAC1-D3549DD115FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B1E622-2422-47E3-8DA8-74152F7E3CAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B1E622-2422-47E3-8DA8-74152F7E3CAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B1E622-2422-47E3-8DA8-74152F7E3CAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B1E622-2422-47E3-8DA8-74152F7E3CAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D169254-6E37-4D95-BE97-E1978FD135AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D169254-6E37-4D95-BE97-E1978FD135AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D169254-6E37-4D95-BE97-E1978FD135AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D169254-6E37-4D95-BE97-E1978FD135AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
