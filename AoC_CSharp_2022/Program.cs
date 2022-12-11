@@ -1,9 +1,9 @@
 ﻿// C#
 
 using AoC_CSharp_2022;
+using AoC_CSharp_2022.Day09;
 using AoC_CSharp_2022.Day10;
 using AoC_CSharp_2022.Day11;
-using AoC_CSharp_2022.Day9;
 
 const int day = 11;
 const bool useExample = false;

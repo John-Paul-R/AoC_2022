@@ -1,4 +1,4 @@
-namespace AoC_CSharp_2022.Day9;
+namespace AoC_CSharp_2022.Day09;
 
 record struct Coordinate(int X, int Y)
 {
